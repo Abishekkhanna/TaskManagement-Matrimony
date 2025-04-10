@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header-row">
+    <h2>Projects</h2>
+    <button mat-raised-button color="primary" (click)="addProject()">Add Project</button>
+  </div>
+
+  <div class="card-grid">
+    <mat-card *ngFor="let project of projects" class="project-card">
+      <mat-card-title>{{ project.name }}</mat-card-title>
+      <mat-card-content>
+        <p *ngIf="project.description; else noDesc">{{ project.description }}</p>
+        <ng-template #noDesc><i>No description</i></ng-template>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="accent" (click)="editProject(project.id!)">Edit</button>
+        <button mat-stroked-button color="warn" (click)="deleteProject(project.id!)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

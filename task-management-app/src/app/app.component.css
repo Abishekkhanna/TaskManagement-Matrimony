@@ -1,0 +1,25 @@
+.main-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-weight: bold;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a.mat-button {
+  color: white;
+  font-weight: 500;
+}
+
+a.active-link {
+  border-bottom: 2px solid white;
+}

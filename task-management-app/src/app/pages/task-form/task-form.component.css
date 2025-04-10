@@ -1,0 +1,30 @@
+.form-container {
+  padding: 32px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  width: 100%;
+}
+
+.three-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.form-field {
+  flex: 1 1 30%;
+  min-width: 200px;
+}
+
+.full-width {
+  width: 100%;
+}

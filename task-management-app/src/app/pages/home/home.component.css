@@ -1,0 +1,25 @@
+.home-container {
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .home-card {
+    width: 250px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .home-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  

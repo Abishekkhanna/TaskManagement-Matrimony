@@ -1,0 +1,27 @@
+<div class="form-container">
+  <mat-card>
+    <h2>{{ isEdit ? 'Edit Project' : 'New Project' }}</h2>
+
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Project Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="projectForm.get('name')?.hasError('required')">Name is required</mat-error>
+        <mat-error *ngIf="projectForm.get('name')?.hasError('maxlength')">Max 255 characters</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="4"></textarea>
+        <mat-error *ngIf="projectForm.get('description')?.hasError('maxlength')">Max 1000 characters</mat-error>
+      </mat-form-field>
+
+      <div class="btn-row">
+        <button mat-raised-button color="primary" type="submit">
+          {{ isEdit ? 'Update Project' : 'Create Project' }}
+        </button>
+        <button mat-stroked-button color="warn" type="button" routerLink="/projects">Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

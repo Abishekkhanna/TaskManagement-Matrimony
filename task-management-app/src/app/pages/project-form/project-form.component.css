@@ -1,0 +1,31 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
