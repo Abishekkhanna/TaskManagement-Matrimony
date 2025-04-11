@@ -1,0 +1,71 @@
+.task-form-container {
+  padding: 2rem;
+  background-color: #FFF2F2;
+  display: flex;
+  justify-content: center;
+
+  mat-card {
+    background-color: #A9B5DF;
+    color: #2D336B;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    mat-card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2D336B;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      .full-width {
+        width: 100%;
+      }
+
+      mat-form-field {
+        background: #FFF2F2;
+        border-radius: 6px;
+
+        ::ng-deep .mat-form-field-flex {
+          background-color: #FFF2F2;
+        }
+
+        .mat-form-field-outline {
+          color: #2D336B;
+        }
+
+        .mat-input-element,
+        .mat-select-value {
+          color: #2D336B;
+        }
+      }
+
+      .form-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 1rem;
+
+        button {
+          font-weight: 600;
+        }
+
+        button[color="primary"] {
+          background-color: #2D336B;
+          color: #FFF2F2;
+        }
+
+        button.mat-button {
+          color: #2D336B;
+        }
+      }
+    }
+  }
+}

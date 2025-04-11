@@ -1,0 +1,46 @@
+.project-form-wrapper {
+  padding: 2rem;
+  background-color: #FFF2F2;
+  display: flex;
+  justify-content: center;
+}
+
+.project-form-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #A9B5DF;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+
+  mat-card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2D336B;
+    margin-bottom: 1.5rem;
+  }
+
+  mat-card-content {
+    padding: 0;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  button[mat-raised-button] {
+    background-color: #2D336B;
+    color: #FFF2F2;
+  }
+
+  button[mat-button] {
+    color: #2D336B;
+  }
+}

@@ -1,20 +1,20 @@
-<div class="home-container">
-    <h1>Welcome to Task Manager</h1>
-  
-    <div class="card-container">
-      <mat-card class="home-card" (click)="navigateTo('/projects')">
-        <mat-card-title>Add Project</mat-card-title>
-        <mat-card-content>
-          <p>Create and manage your projects.</p>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="home-card" (click)="navigateTo('/tasks/new')">
-        <mat-card-title>Add Task</mat-card-title>
-        <mat-card-content>
-          <p>Create and manage your tasks.</p>
-        </mat-card-content>
-      </mat-card>
+<div class="home-wrapper">
+  <h1 class="home-title">Welcome to Task Manager</h1>
+
+  <div class="home-grid">
+    <div class="home-card" (click)="navigateTo('/projects')">
+      <div class="icon">📁</div>
+      <div class="label">Manage Projects</div>
+    </div>
+
+    <div class="home-card" (click)="navigateTo('/tasks/new')">
+      <div class="icon">📝</div>
+      <div class="label">Add New Task</div>
+    </div>
+
+    <div class="home-card" (click)="navigateTo('/tasks')">
+      <div class="icon">📋</div>
+      <div class="label">View Tasks</div>
     </div>
   </div>
-  
+</div>

@@ -1,0 +1,80 @@
+<div class="task-list-container">
+  <div class="toolbar">
+    <button mat-raised-button color="primary" routerLink="/projects">← Back to Projects</button>
+    <button mat-raised-button color="accent" (click)="onCreate()">+ New Task</button>
+    
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Search Tasks</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (input)="applyFilters()" placeholder="Enter task title..." />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Sort by</mat-label>
+      <mat-select (selectionChange)="sortTasks($event.value)">
+        <mat-option value="title">Title (A–Z)</mat-option>
+        <mat-option value="due">Due Date</mat-option>
+        <mat-option value="priority">Priority</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="statusFilter" (selectionChange)="applyFilters()">
+        <mat-option value="">All</mat-option>
+        <mat-option value="To Do">To Do</mat-option>
+        <mat-option value="In Progress">In Progress</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="filter-field">
+      <mat-label>Priority</mat-label>
+      <mat-select [(value)]="priorityFilter" (selectionChange)="applyFilters()">
+        <mat-option value="">All</mat-option>
+        <mat-option value="Low">Low</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="High">High</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="task-cards">
+    <mat-card *ngFor="let task of paginatedTasks" class="task-card mat-elevation-z4">
+      <mat-card-header>
+        <mat-card-title>{{ task.title }}</mat-card-title>
+        <mat-card-subtitle>{{ getProjectName(task.project_id) }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ task.description }}</p>
+        <div class="chip-group">
+          <mat-chip color="primary" selected>Status: {{ task.status }}</mat-chip>
+          <mat-chip [color]="getPriorityColor(task.priority || '')" selected>
+            Priority: {{ task.priority }}
+          </mat-chip>
+          <mat-chip [ngClass]="getDueDateStatus(task)" selected>
+            {{
+              getDueDateStatus(task) === 'overdue' ? '⚠️ Overdue:' :
+              getDueDateStatus(task) === 'today' ? '📅 Due Today:' :
+              getDueDateStatus(task) === 'completed' ? '✅ Completed:' :
+              '⏳ Upcoming:'
+            }}
+            {{ task.due_date | date: 'mediumDate' }}
+          </mat-chip>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="accent" (click)="onEdit(task.id!)">Edit</button>
+        <button mat-button color="warn" (click)="onDelete(task.id!)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <mat-paginator
+    [length]="filteredTasks.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[3, 5, 10]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

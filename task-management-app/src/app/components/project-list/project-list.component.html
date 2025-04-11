@@ -1,0 +1,30 @@
+<div class="project-list-container">
+  <div class="toolbar">
+    <button mat-raised-button color="primary" (click)="onCreate()">+ New Project</button>
+  </div>
+
+  <div class="project-grid">
+    <mat-card *ngFor="let project of projects" class="project-card">
+      <mat-card-title>{{ project.name }}</mat-card-title>
+
+      <mat-card-content>
+        <p>{{ project.description }}</p>
+
+        <div *ngIf="project.progress !== undefined" class="progress-bar-wrapper">
+          <mat-progress-bar
+            mode="determinate"
+            [value]="project.progress"
+            color="primary"
+          ></mat-progress-bar>
+          <small>{{ project.completedCount }} of {{ project.totalCount }} tasks completed</small>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" (click)="viewTasks(project.id!)">View Tasks</button>
+        <button mat-stroked-button color="accent" (click)="onEdit(project.id!)">Edit</button>
+        <button mat-stroked-button color="warn" (click)="onDelete(project.id!)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

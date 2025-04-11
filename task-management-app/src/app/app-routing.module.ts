@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProjectListComponent } from './pages/project-list/project-list.component';
-import { ProjectFormComponent } from './pages/project-form/project-form.component';
-import { TaskListComponent } from './pages/task-list/task-list.component';
-import { TaskFormComponent } from './pages/task-form/task-form.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskFormComponent } from './components/task-form/task-form.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [

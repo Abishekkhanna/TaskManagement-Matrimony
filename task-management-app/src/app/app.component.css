@@ -1,25 +1,33 @@
 .main-toolbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  font-weight: bold;
+  background-color: #2D336B;
+  color: white;
+  padding: 0 1rem;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .app-title {
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFF2F2;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-a.mat-button {
-  color: white;
-  font-weight: 500;
+a[mat-button] {
+  color: #FFF2F2;
+  margin-left: 10px;
 }
 
-a.active-link {
-  border-bottom: 2px solid white;
+a[mat-button].active-link {
+  background-color: #7886C7;
+  border-radius: 8px;
+}
+
+.app-container {
+  background-color: #FFF2F2;
+  min-height: 100vh;
+  padding: 2rem;
 }
