@@ -11,7 +11,6 @@ import { ProjectFormComponent } from './components/project-form/project-form.com
 import { ProjectListComponent } from './components/project-list/project-list.component'
 import { TaskFormComponent } from './components/task-form/task-form.component'
 import { TaskListComponent } from './components/task-list/task-list.component'
-import { TaskFiltersComponent } from './components/task-filters/task-filters.component'
 
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
@@ -36,7 +35,6 @@ import { HomeComponent } from './pages/home/home.component'
     ProjectListComponent,
     TaskFormComponent,
     TaskListComponent,
-    TaskFiltersComponent,
     HomeComponent
   ],
   imports: [
