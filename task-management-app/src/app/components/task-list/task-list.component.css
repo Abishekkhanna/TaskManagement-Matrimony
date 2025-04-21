@@ -1,98 +1,207 @@
 .task-list-container {
-  padding: 2rem;
-  background-color: #FFF2F2;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.filters-container {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-group mat-form-field {
+  flex: 1;
+  min-width: 150px;
+}
+
+.task-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.task-card {
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+mat-card-header {
+  padding-bottom: 8px;
+}
+
+mat-card-title {
+  font-size: 18px !important;
+  margin-bottom: 4px !important;
+}
+
+.task-description {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.task-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.chip{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px;
+}
+mat-chip {
+  margin-bottom: 8px !important;
+}
+
+mat-chip mat-icon {
+  margin-right: 4px;
+}
+
+.status-to-do {
+  background-color: #e3f2fd !important;
+  color: #1976d2 !important;
+}
+
+.status-in-progress {
+  background-color: #e8eaf6 !important;
+  color: #3f51b5 !important;
+}
+
+.status-completed {
+  background-color: #e8f5e9 !important;
+  color: #4caf50 !important;
+}
+
+.priority-low {
+  background-color: #e8f5e9 !important;
+  color: #4caf50 !important;
+}
+
+.priority-medium {
+  background-color: #fff8e1 !important;
+  color: #ffa000 !important;
+}
+
+.priority-high {
+  background-color: #ffebee !important;
+  color: #f44336 !important;
+}
+
+.overdue {
+  background-color: #ffebee !important;
+  color: #f44336 !important;
+}
+
+.today {
+  background-color: #fff8e1 !important;
+  color: #ffa000 !important;
+}
+
+.completed {
+  background-color: #e8f5e9 !important;
+  color: #4caf50 !important;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px !important;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  color: rgba(0, 0, 0, 0.38);
+  margin-bottom: 16px;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.empty-state p {
+  margin: 0 0 24px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 599px) {
   .toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .toolbar-left {
+    width: 100%;
     justify-content: space-between;
-    margin-bottom: 2rem;
-
-    button {
-      background-color: #2D336B;
-      color: #FFF2F2;
-
-      &.mat-accent {
-        background-color: #7886C7;
-      }
-    }
-
-    .filter-field {
-      flex: 1;
-      min-width: 180px;
-    }
   }
-
-  .task-cards {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    .task-card {
-      background-color: #A9B5DF;
-      color: #2D336B;
-      border-radius: 16px;
-      padding: 1rem;
-
-      mat-card-title {
-        font-size: 1.3rem;
-        font-weight: bold;
-      }
-
-      mat-card-subtitle {
-        font-style: italic;
-        color: #2D336B;
-      }
-
-      mat-card-content {
-        margin-top: 0.5rem;
-
-        p {
-          margin-bottom: 1rem;
-        }
-
-        .chip-group {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-
-          mat-chip {
-            background-color: #FFF2F2;
-            color: #2D336B;
-            font-weight: 500;
-          }
-
-          .overdue {
-            background-color: #ffb3b3 !important;
-          }
-
-          .today {
-            background-color: #ffebb3 !important;
-          }
-
-          .completed {
-            background-color: #c8ffb3 !important;
-          }
-        }
-      }
-
-      mat-card-actions {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-
-        button {
-          font-weight: 500;
-        }
-      }
-    }
+  
+  .page-title {
+    font-size: 24px;
   }
-
-  mat-paginator {
-    margin-top: 2rem;
-    background-color: #A9B5DF;
-    border-radius: 12px;
+  
+  .filter-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .filter-group mat-form-field {
+    width: 100%;
   }
 }

@@ -1,26 +1,30 @@
 <div class="project-form-wrapper">
   <mat-card class="project-form-card">
-    <mat-card-title>
-      {{ isEditMode ? 'Edit Project' : 'New Project' }}
-    </mat-card-title>
+    <mat-card-header>
+      <mat-card-title>{{ isEditMode ? 'Edit Project' : 'New Project' }}</mat-card-title>
+      <mat-card-subtitle *ngIf="isEditMode">Update your project details</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="!isEditMode">Fill in the details to create a new project</mat-card-subtitle>
+    </mat-card-header>
 
     <mat-card-content>
       <form (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill" class="full-width">
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Project Name</mat-label>
-          <input matInput [(ngModel)]="project.name" name="name" required />
+          <input matInput [(ngModel)]="project.name" name="name" required placeholder="Enter project name">
+          <mat-hint>Give your project a descriptive name</mat-hint>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="full-width">
+        <mat-form-field appearance="outline" class="full-width">
           <mat-label>Description</mat-label>
-          <textarea matInput [(ngModel)]="project.description" name="description"></textarea>
+          <textarea matInput [(ngModel)]="project.description" name="description" placeholder="Enter project description" rows="4"></textarea>
+          <mat-hint>Briefly describe the purpose of this project</mat-hint>
         </mat-form-field>
 
         <div class="form-actions">
+          <button mat-button type="button" (click)="onCancel()">Cancel</button>
           <button mat-raised-button color="primary" type="submit">
             {{ isEditMode ? 'Update' : 'Create' }}
           </button>
-          <button mat-button type="button" (click)="onCancel()">Cancel</button>
         </div>
       </form>
     </mat-card-content>

@@ -1,20 +1,38 @@
-<div class="home-wrapper">
-  <h1 class="home-title">Welcome to Task Manager</h1>
-
-  <div class="home-grid">
-    <div class="home-card" (click)="navigateTo('/projects')">
-      <div class="icon">📁</div>
-      <div class="label">Manage Projects</div>
+<div class="home-container" [ngClass]="{'dark-theme': isDarkTheme}">
+  <div class="home-content">
+    <div class="home-header">
+      <h1 class="home-title">Welcome to Task Manager</h1>
+      <p class="home-subtitle">Organize your projects and tasks efficiently</p>
     </div>
 
-    <div class="home-card" (click)="navigateTo('/tasks/new')">
-      <div class="icon">📝</div>
-      <div class="label">Add New Task</div>
+    <div class="home-cards">
+      <div class="card" (click)="navigateTo('/projects')">
+        <div class="card-icon projects-icon">
+          <span class="material-icons">folder</span>
+        </div>
+        <h2 class="card-title">Manage Projects</h2>
+        <p class="card-description">Create and organize your projects</p>
+      </div>
+
+      <div class="card" (click)="navigateTo('/tasks/new')">
+        <div class="card-icon tasks-new-icon">
+          <span class="material-icons">add_task</span>
+        </div>
+        <h2 class="card-title">Add New Task</h2>
+        <p class="card-description">Create a new task for your projects</p>
+      </div>
+
+      <div class="card" (click)="navigateTo('/tasks')">
+        <div class="card-icon tasks-view-icon">
+          <span class="material-icons">list_alt</span>
+        </div>
+        <h2 class="card-title">View Tasks</h2>
+        <p class="card-description">View and manage all your tasks</p>
+      </div>
     </div>
 
-    <div class="home-card" (click)="navigateTo('/tasks')">
-      <div class="icon">📋</div>
-      <div class="label">View Tasks</div>
+    <div class="home-footer">
+      <p>Get started by selecting one of the options above</p>
     </div>
   </div>
 </div>

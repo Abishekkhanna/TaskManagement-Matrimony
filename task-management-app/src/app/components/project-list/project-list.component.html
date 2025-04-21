@@ -1,30 +1,58 @@
 <div class="project-list-container">
-  <div class="toolbar">
-    <button mat-raised-button color="primary" (click)="onCreate()">+ New Project</button>
+  <div class="header-actions">
+    <h1 class="page-title">My Projects</h1>
+    <button mat-raised-button color="primary" (click)="onCreate()">
+      <mat-icon>add</mat-icon>
+      New Project
+    </button>
   </div>
 
   <div class="project-grid">
     <mat-card *ngFor="let project of projects" class="project-card">
-      <mat-card-title>{{ project.name }}</mat-card-title>
+      <mat-card-header>
+        <mat-card-title>{{ project.name }}</mat-card-title>
+      </mat-card-header>
 
       <mat-card-content>
-        <p>{{ project.description }}</p>
+        <p class="project-description">{{ project.description }}</p>
 
-        <div *ngIf="project.progress !== undefined" class="progress-bar-wrapper">
+        <div *ngIf="project.progress !== undefined" class="progress-container">
+          <div class="progress-header">
+            <span>Progress</span>
+            <span class="progress-percentage">{{ project.progress }}%</span>
+          </div>
           <mat-progress-bar
             mode="determinate"
             [value]="project.progress"
-            color="primary"
+            [color]="project.progress > 75 ? 'accent' : 'primary'"
           ></mat-progress-bar>
-          <small>{{ project.completedCount }} of {{ project.totalCount }} tasks completed</small>
+          <div class="progress-stats">
+            {{ project.completedCount }} of {{ project.totalCount }} tasks completed
+          </div>
         </div>
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-stroked-button color="primary" (click)="viewTasks(project.id!)">View Tasks</button>
-        <button mat-stroked-button color="accent" (click)="onEdit(project.id!)">Edit</button>
-        <button mat-stroked-button color="warn" (click)="onDelete(project.id!)">Delete</button>
+        <button mat-button color="primary" (click)="viewTasks(project.id!)">
+          <mat-icon>list</mat-icon> View Tasks
+        </button>
+        <button mat-icon-button color="primary" (click)="onEdit(project.id!)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="onDelete(project.id!)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
+    
+    <!-- Empty state when no projects exist -->
+    <div *ngIf="projects.length === 0" class="empty-state">
+      <mat-icon class="empty-icon">folder</mat-icon>
+      <h2>No projects yet</h2>
+      <p>Create your first project to get started.</p>
+      <button mat-raised-button color="primary" (click)="onCreate()">
+        <mat-icon>add</mat-icon> Create Project
+      </button>
+    </div>
   </div>
 </div>

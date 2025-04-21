@@ -27,6 +27,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { HomeComponent } from './pages/home/home.component'
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HomeComponent } from './pages/home/home.component'
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatChipsModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
@@ -55,8 +57,8 @@ import { HomeComponent } from './pages/home/home.component'
     MatNativeDateModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    MatChipsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

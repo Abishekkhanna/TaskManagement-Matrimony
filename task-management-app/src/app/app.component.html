@@ -1,10 +1,43 @@
-<mat-toolbar class="main-toolbar">
-  <span class="app-title">🗂️ Task Manager</span>
-  <span class="spacer"></span>
-  <a mat-button routerLink="/projects" routerLinkActive="active-link">Projects</a>
-  <a mat-button routerLink="/tasks" routerLinkActive="active-link">Tasks</a>
-</mat-toolbar>
-
 <div class="app-container">
-  <router-outlet></router-outlet>
+  <mat-toolbar class="main-toolbar" color="primary">
+    <div class="toolbar-container">
+      <div class="toolbar-left">
+        <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu" aria-label="Menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item routerLink="/projects">
+            <mat-icon>folder</mat-icon>
+            <span>Projects</span>
+          </a>
+          <a mat-menu-item routerLink="/tasks">
+            <mat-icon>assignment</mat-icon>
+            <span>Tasks</span>
+          </a>
+        </mat-menu>
+        
+        <a routerLink="/" class="app-title">
+          <mat-icon class="title-icon">assignment</mat-icon>
+          <span>Task Manager</span>
+        </a>
+      </div>
+      
+      <div class="toolbar-right">
+        <nav class="nav-links">
+          <a mat-button routerLink="/projects" routerLinkActive="active-link">
+            <mat-icon>folder</mat-icon>
+            <span>Projects</span>
+          </a>
+          <a mat-button routerLink="/tasks" routerLinkActive="active-link">
+            <mat-icon>assignment</mat-icon>
+            <span>Tasks</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
